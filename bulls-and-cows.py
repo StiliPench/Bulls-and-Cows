@@ -27,11 +27,11 @@ def userInput():
         try:
             number = int(input("Enter a number: "))
             if(hasZero(number) or not(diffDigits(number)) or number<1234 or number>9876):
-                print("Incorrect input. Please enter a number which has 4 different digits excluding 0!")
+                print("Incorrect input. Please enter a number which has 4 different digits and excludes 0!")
                 continue
             break
         except ValueError:
-            print("Incorrect input. Please enter a number which has 4 different digits excluding 0!")
+            print("Incorrect input. Please enter a number which has 4 different digits and excludes 0!")
     return number
 
 def countBullsAndCows(userNum, compNum):
@@ -47,4 +47,19 @@ def countBullsAndCows(userNum, compNum):
             if userNum[i]==compNum[j]:
                 numCows+=1
     numCows -= numBulls
-    print("There are {} Bull(s) and {} Cow(s) in your number.".format(numBulls, numCows))
+    print("There are {} Bull(s) and {} Cow(s) in your number.\n".format(numBulls, numCows))
+
+def play():
+    print("Hey!\nThis is the game Bulls and Cows!\n")
+    compNum = computerNum()
+    rounds = 0;
+    while True:
+        rounds+=1
+        print("Round {:n}. ".format(rounds), end=" ")
+        userNum = userInput()
+        if userNum==compNum:
+            break
+        countBullsAndCows(userNum, compNum)
+    print("\nCongrats!!!\nYou guessed the number correctly in {:n} attempts.".format(rounds))
+
+play()
