@@ -52,7 +52,7 @@ def countBullsAndCows(userNum, compNum):
 def play():
     print("Hey!\nThis is the game Bulls and Cows!\n")
     compNum = computerNum()
-    rounds = 0;
+    rounds = 0
     while True:
         rounds+=1
         print("Round {:n}. ".format(rounds), end=" ")
