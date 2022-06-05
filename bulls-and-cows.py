@@ -33,3 +33,18 @@ def userInput():
         except ValueError:
             print("Incorrect input. Please enter a number which has 4 different digits excluding 0!")
     return number
+
+def countBullsAndCows(userNum, compNum):
+    userNum = str(userNum)
+    compNum = str(compNum)
+    numBulls=0
+    numCows=0
+    for i in range(4):
+        if userNum[i] == compNum[i]:
+            numBulls+=1
+    for i in range(4):
+        for j in range(4):
+            if userNum[i]==compNum[j]:
+                numCows+=1
+    numCows -= numBulls
+    print("There are {} Bull(s) and {} Cow(s) in your number.".format(numBulls, numCows))
