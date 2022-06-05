@@ -14,3 +14,10 @@ def hasZero(number):
         if i=="0":
             return True
     return False
+
+def computerNum():
+    number = None;
+    while True:
+        number = random.randint(1234, 9876)
+        if diffDigits(number) and not(hasZero(number)):
+            return number
